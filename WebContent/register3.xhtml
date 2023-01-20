@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Formation DORANCO</title>
+</head>
+
+<body>
+	<!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE. -->
+	<ui:composition template="/resources/template/layout.xhtml">
+		<!-- permet de composer le contenu page avec des facelets -->
+		<ui:define name="content">
+			<!-- redefini le contenu du file "content.xmlns" en remplacant le code par le new content -->
+			<f:view>
+				<h:form style="margin-left:5px">
+					<h4 style="font-family: sans-serif">
+						Formulaire JSF d'inscription à l' <a
+							href="https://www.doranco.fr/candidature/parcours/41?">Ecole
+							DORANCO</a>.
+					</h4>
+
+					<h:panelGrid id="panel" columns="3" cellpadding="0" cellspacing="2" style="margin-bottom:10px">
+
+						<h:outputLabel value="Nom :" />
+						<h:inputText value="#{userbean.nom}" required="true" id="nom" />
+						<h:message for="nom" />
+
+						<h:outputLabel value="Prenom :" />
+						<h:inputText value="#{userbean.prenom}" required="true"
+							id="prenom" />
+						<h:message for="prenom" />
+
+						<h:outputLabel value="Date de naissance :" />
+						<h:inputText value="#{userbean.dateNaissance}" required="true"
+							id="dateNaissance" />(mm-dd-yy)
+						<!-- <h:message for="dateNaissance" /> -->
+
+						<h:outputLabel value="Sexe :" />
+						<h:selectOneRadio value="#{userbean.genre}" required="true"
+							id="genre">
+							<f:selectItem itemLabel="Homme" itemValue="homme" />
+							<f:selectItem itemLabel="Femme" itemValue="femme" />
+						</h:selectOneRadio>
+						<h:message for="genre" />
+
+						<h:outputLabel value="Email :" />
+						<h:inputText value="#{userbean.email}" required="true" id="email" />
+						<h:message for="email" />
+
+						<h:outputLabel value="Qualité de Service :" />
+						<h:selectOneMenu value="#{userbean.niveauDeService}">
+							<f:selectItem itemLabel="Basic" itemValue="basic" />
+							<f:selectItem itemLabel="Medium" itemValue="medium" />
+							<f:selectItem itemLabel="Premium" itemValue="Premium" />
+						</h:selectOneMenu>
+					
+					
+					</h:panelGrid>
+
+					<h:commandButton style="margin-bottom:10px" value="Inscription" action="#" />
+
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</body>
+
+</html>
